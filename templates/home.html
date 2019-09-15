@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    
+    {% if user.is_authenticated %}
+    Hi {{ user.username }}!
+    <p><a href="{% url 'logout' %}">logout</a></p>
+    <p><a href="{% url 'password_reset' %}">reset password</a></p>
+    {% else %}
+        <div class="container" id="home-container">
+            <h1 id="logo-home" >
+                <span class="wow fadeIn" data-wow-delay="0.2s">A</span><span class="wow fadeIn" data-wow-delay="0.3s" >p</span><span class="wow fadeIn" data-wow-delay="0.6s" >p</span><span class="wow fadeIn" data-wow-delay="0.9s" >l</span><span class="wow fadeIn" data-wow-delay="1.2s" >e</span> <span class="wow fadeIn" data-wow-delay="1.5s" >M</span><span class="wow fadeIn" data-wow-delay="1.8s" >u</span><span class="wow fadeIn" data-wow-delay="2.1s" >s</span><span class="wow fadeIn" data-wow-delay="2.4s" >i</span><span class="wow fadeIn" data-wow-delay="2.7s" >c</span>
+            </h1>
+            <p id="home-text" class="wow fadeIn" data-wow-delay="3.3s" >To view our website, please login or sign up.</p>
+            <a class="wow fadeIn" data-wow-delay="3.9s" id="home-button1" href="{% url 'login' %}"><span>login</span></a>
+            <a class="wow fadeIn" data-wow-delay="4.2s" id="home-button1" href="{% url 'signup' %}"><span>signup</span></a>
+            {% endif %}
+        </div>
+{% endblock %}
